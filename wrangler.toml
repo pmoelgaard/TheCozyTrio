@@ -1,0 +1,14 @@
+name = "thecozytrio"
+compatibility_date = "2026-04-06"
+
+# Cloudflare Workers Static Assets config.
+# - directory: where the built SPA lives. Angular 21's @angular/build
+#   application builder writes the browser bundle (index.html + chunks +
+#   CSS) to dist/thecozytrio/browser/.
+# - not_found_handling = "single-page-application": for any path that
+#   doesn't match a static file, serve /index.html so Angular's client-
+#   side router can take over. Required for the SPA to work on deep
+#   links and reloads.
+[assets]
+directory = "./dist/thecozytrio/browser"
+not_found_handling = "single-page-application"
