@@ -51,3 +51,10 @@ pnpm-workspace.yaml
 # Local secret vault — PATs, API keys, etc. Never committed.
 # See .secrets/README.md for details.
 .secrets/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
