@@ -1,0 +1,54 @@
+<section
+  #root
+  class="milestones"
+  xsInView
+  #inView="xsInView"
+  [class.milestones--visible]="inView.isInView()"
+  [threshold]="0.05"
+  [style.--progress]="progress()"
+>
+  <header class="milestones__header">
+    <h2 class="milestones__title">First 8 months</h2>
+    <p class="milestones__subtitle">
+      A tiny timeline of the cozy trio's newest chapter.
+    </p>
+  </header>
+
+  <div class="milestones__track">
+    <!-- Central line. stroke-dashoffset is driven by --progress. -->
+    <svg class="milestones__line" viewBox="0 0 4 1000" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="2" y1="0" x2="2" y2="1000"
+            stroke="var(--color-action-default)" stroke-width="3"
+            stroke-linecap="round" stroke-dasharray="1000 1000" />
+    </svg>
+
+    <ol class="milestones__list">
+      @for (m of milestones; track m.id; let i = $index) {
+        <li
+          class="milestones__item"
+          [class.milestones__item--right]="i % 2 === 1"
+          [class.milestones__item--m6]="m.id === 'm6'"
+          [class.milestones__item--m8]="m.id === 'm8'"
+          (mouseenter)="m.id === 'm6' ? onMonth6Enter() : null"
+          (mouseleave)="m.id === 'm6' ? onMonth6Leave() : null"
+          (click)="m.id === 'm8' ? onMonth8Click() : null"
+        >
+          <div class="milestones__dot">
+            <span>{{ m.emoji }}</span>
+          </div>
+          <div class="milestones__card">
+            <span class="milestones__month">{{ m.month }}</span>
+            <h3>{{ m.title }}</h3>
+            <p>{{ m.body }}</p>
+            @if (m.id === 'm6') {
+              <small class="milestones__hint">(hover me for 3 seconds…)</small>
+            }
+            @if (m.id === 'm8') {
+              <small class="milestones__hint">(click me!)</small>
+            }
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
