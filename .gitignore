@@ -51,3 +51,7 @@ pnpm-workspace.yaml
 # Local secret vault — PATs, API keys, etc. Never committed.
 # See .secrets/README.md for details.
 .secrets/
+
+# Local Claude Code preview launch config — contains absolute paths
+# specific to the developer's machine.
+.claude/

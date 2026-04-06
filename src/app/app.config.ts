@@ -1,4 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
 import {
   provideXsiteCore,
@@ -11,6 +12,11 @@ import { provideXsiteUi } from '@xtnd-dynamics/xsite-ui';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+
+    // xsite-core's MetaService auto-instantiates at boot via APP_INITIALIZER
+    // and hard-injects Router + ActivatedRoute, so even a router-less SPA
+    // needs provideRouter() with an empty table to satisfy the DI graph.
+    provideRouter([]),
 
     provideXsiteCore({
       siteName: 'The Cozy Trio',
