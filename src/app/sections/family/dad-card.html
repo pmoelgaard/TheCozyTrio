@@ -1,0 +1,61 @@
+<xs-card class="dad-card" variant="elevated" (click)="onClick()">
+  <div slot="image" class="dad-card__image">
+    <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="90" r="80" fill="var(--color-surface-secondary)" />
+      <!-- Beard back -->
+      <ellipse cx="100" cy="108" rx="38" ry="30" fill="#c48f5b" />
+      <!-- Face -->
+      <circle class="dad-card__face" cx="100" cy="82" r="32" fill="#f1c6a8" />
+      <!-- Hair (side-parted) -->
+      <path d="M70 60 Q72 42 100 40 Q130 42 132 60 Q118 52 100 55 Q80 55 70 60 Z"
+            fill="#d4a55c" />
+      <!-- Eyes (blink) -->
+      <g class="dad-card__eyes">
+        <circle cx="90" cy="82" r="2.5" fill="#2d5f9e" />
+        <circle cx="110" cy="82" r="2.5" fill="#2d5f9e" />
+      </g>
+      <!-- Nose -->
+      <path d="M100 86 L99 92 L102 94" stroke="#c48f5b" stroke-width="1.5"
+            fill="none" stroke-linecap="round" />
+      <!-- Mustache + smile -->
+      <path d="M88 98 Q94 100 100 98 Q106 100 112 98" stroke="#c48f5b"
+            stroke-width="2.5" fill="none" stroke-linecap="round" />
+      <path d="M94 108 Q100 112 106 108" stroke="#1a1a1a" stroke-width="1.5"
+            fill="none" stroke-linecap="round" />
+      <!-- Body (sweater) -->
+      <rect x="65" y="118" width="70" height="50" rx="8"
+            fill="var(--color-accent)" />
+      <!-- Sweater knit pattern -->
+      <line x1="75" y1="130" x2="125" y2="130" stroke="#b48940" stroke-width="1" stroke-dasharray="3 3" />
+      <line x1="75" y1="145" x2="125" y2="145" stroke="#b48940" stroke-width="1" stroke-dasharray="3 3" />
+      <!-- Coffee mug -->
+      <g class="dad-card__mug">
+        <rect x="142" y="118" width="14" height="16" rx="2" fill="#8b5a2b" />
+        <path d="M156 120 Q164 122 164 128 Q164 132 156 132"
+              stroke="#8b5a2b" stroke-width="2" fill="none" />
+        <!-- Steam -->
+        <path class="dad-card__steam"
+              d="M146 116 Q148 112 146 108 Q144 104 146 100"
+              stroke="#cbd5e1" stroke-width="1.5" fill="none"
+              stroke-linecap="round" />
+        <path class="dad-card__steam dad-card__steam--2"
+              d="M152 116 Q154 112 152 108 Q150 104 152 100"
+              stroke="#cbd5e1" stroke-width="1.5" fill="none"
+              stroke-linecap="round" />
+      </g>
+    </svg>
+  </div>
+  <div slot="heading" class="dad-card__heading">
+    <h3>Danish Dad</h3>
+    <span class="dad-card__flag" aria-hidden="true">🇩🇰</span>
+  </div>
+  <div slot="body" class="dad-card__body">
+    <p>
+      Grill-master, IKEA-whisperer, and the world's best hygge architect.
+      Strong coffee, stronger hugs.
+    </p>
+  </div>
+  <div slot="footer" class="dad-card__footer">
+    <span class="dad-card__hint">psst — try clicking me</span>
+  </div>
+</xs-card>

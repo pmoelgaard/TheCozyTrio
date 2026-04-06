@@ -1,0 +1,75 @@
+:host {
+  display: block;
+}
+
+.family {
+  padding: 96px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.family__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.family__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.family__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2vw, 20px);
+  margin: 0;
+  color: var(--color-text-primary);
+  opacity: 0.75;
+}
+
+.family__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+.family__item {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--i, 0) * 150ms);
+}
+
+.family--visible .family__item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+// Put the baby in the middle visually-prominent position on wide screens.
+.family__item:nth-child(2) {
+  transform: translateY(60px) scale(0.92);
+}
+
+.family--visible .family__item:nth-child(2) {
+  transform: translateY(-8px) scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .family__item {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

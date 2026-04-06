@@ -1,0 +1,54 @@
+<xs-card class="baby-card" variant="elevated" (click)="onClick()">
+  <div slot="image" class="baby-card__image">
+    <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="90" r="80" fill="var(--color-surface-secondary)" />
+      <!-- Head -->
+      <circle class="baby-card__head" cx="100" cy="80" r="38" fill="#f8d3b8" />
+      <!-- Little tuft of hair -->
+      <path d="M88 46 Q100 36 112 46 Q106 42 100 42 Q94 42 88 46"
+            fill="#7a5230" />
+      <!-- Chubby cheeks -->
+      <circle cx="78" cy="92" r="6" fill="#ffb3c6" opacity="0.6" />
+      <circle cx="122" cy="92" r="6" fill="#ffb3c6" opacity="0.6" />
+      <!-- Eyes (big anime-style) -->
+      <circle cx="88" cy="78" r="5" fill="#1a1a1a" />
+      <circle cx="112" cy="78" r="5" fill="#1a1a1a" />
+      <circle cx="89" cy="76" r="1.5" fill="#ffffff" />
+      <circle cx="113" cy="76" r="1.5" fill="#ffffff" />
+      <!-- Smile -->
+      <path d="M90 96 Q100 104 110 96" stroke="#1a1a1a" stroke-width="2"
+            fill="none" stroke-linecap="round" />
+      <!-- Onesie -->
+      <rect x="70" y="118" width="60" height="50" rx="10"
+            fill="var(--color-accent)" />
+      <!-- Onesie buttons -->
+      <circle cx="100" cy="130" r="2" fill="var(--color-action-default)" />
+      <circle cx="100" cy="142" r="2" fill="var(--color-action-default)" />
+      <circle cx="100" cy="154" r="2" fill="var(--color-action-default)" />
+      <!-- Pacifier held up -->
+      <g class="baby-card__pacifier">
+        <circle cx="140" cy="80" r="6" fill="#ffb3c6" />
+        <circle cx="140" cy="80" r="3" fill="var(--color-accent)" />
+      </g>
+      <!-- Sparkles -->
+      <g class="baby-card__sparkles" aria-hidden="true">
+        <text x="45" y="50" font-size="14">✨</text>
+        <text x="155" y="130" font-size="12">✨</text>
+        <text x="50" y="130" font-size="10">⭐</text>
+      </g>
+    </svg>
+  </div>
+  <div slot="heading" class="baby-card__heading">
+    <h3>Baby Boy</h3>
+    <span class="baby-card__age">8 months</span>
+  </div>
+  <div slot="body" class="baby-card__body">
+    <p>
+      Pacifier chief, nap connoisseur, and the smallest member with the
+      biggest personality. Click for a peek-a-boo surprise!
+    </p>
+  </div>
+  <div slot="footer" class="baby-card__footer">
+    <span class="baby-card__hint">✨ click me ✨</span>
+  </div>
+</xs-card>

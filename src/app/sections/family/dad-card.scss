@@ -1,0 +1,101 @@
+:host {
+  display: block;
+}
+
+.dad-card {
+  display: block;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.dad-card__image svg {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.dad-card__face {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dad-idle 6s ease-in-out infinite;
+}
+
+@keyframes dad-idle {
+  0%, 100% { transform: rotate(-1deg); }
+  50%      { transform: rotate(1deg); }
+}
+
+.dad-card__eyes {
+  transform-origin: center;
+  animation: dad-blink 5s ease-in-out infinite;
+}
+
+@keyframes dad-blink {
+  0%, 46%, 52%, 100% { transform: scaleY(1); }
+  48%, 50%           { transform: scaleY(0.1); }
+}
+
+.dad-card__steam {
+  opacity: 0.6;
+  animation: steam-rise 2.5s ease-in-out infinite;
+}
+
+.dad-card__steam--2 {
+  animation-delay: 1.2s;
+}
+
+@keyframes steam-rise {
+  0%   { opacity: 0; transform: translateY(6px); }
+  40%  { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+.dad-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+}
+
+.dad-card__flag {
+  font-size: 20px;
+}
+
+.dad-card__body p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--color-text-primary);
+  opacity: 0.85;
+}
+
+.dad-card__hint {
+  font-size: 12px;
+  color: var(--color-text-primary);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dad-card,
+  .dad-card__face,
+  .dad-card__eyes,
+  .dad-card__steam {
+    animation: none !important;
+    transition: none !important;
+  }
+}

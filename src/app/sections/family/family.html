@@ -1,0 +1,26 @@
+<section
+  class="family"
+  xsInView
+  #inView="xsInView"
+  [class.family--visible]="inView.isInView()"
+  [threshold]="0.2"
+>
+  <header class="family__header">
+    <h2 class="family__title">Meet the trio</h2>
+    <p class="family__subtitle">
+      Three hearts, two cultures, one cozy little home.
+    </p>
+  </header>
+
+  <div class="family__grid">
+    <div class="family__item" style="--i: 0">
+      <cozy-mom-card />
+    </div>
+    <div class="family__item" style="--i: 1">
+      <cozy-baby-card />
+    </div>
+    <div class="family__item" style="--i: 2">
+      <cozy-dad-card />
+    </div>
+  </div>
+</section>
