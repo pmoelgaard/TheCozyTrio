@@ -1,5 +1,5 @@
 import { Injectable, Signal, computed, inject, signal } from '@angular/core';
-import { StorageService } from '@xsite/core';
+import { StorageService } from '@xtnd-dynamics/xsite-core';
 
 /**
  * Names of the individual easter eggs scattered through the page.

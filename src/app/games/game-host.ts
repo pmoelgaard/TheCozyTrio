@@ -4,7 +4,7 @@ import {
   computed,
   inject,
 } from '@angular/core';
-import { XsDialogComponent } from '@xsite/ui';
+import { XsDialogComponent } from '@xtnd-dynamics/xsite-ui';
 import {
   GameService,
   EASTER_EGGS,

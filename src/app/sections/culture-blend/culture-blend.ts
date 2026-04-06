@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { InViewDirective } from '@xsite/core';
+import { InViewDirective } from '@xtnd-dynamics/xsite-core';
 
 export interface CultureBlendCard {
   readonly id: string;

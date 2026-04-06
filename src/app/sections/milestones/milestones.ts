@@ -7,7 +7,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { InViewDirective, PlatformService } from '@xsite/core';
+import { InViewDirective, PlatformService } from '@xtnd-dynamics/xsite-core';
 import { GameService, EASTER_EGGS } from '../../shared/services/game.service';
 
 export interface Milestone {

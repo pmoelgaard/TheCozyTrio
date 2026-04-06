@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { InViewDirective } from '@xsite/core';
+import { InViewDirective } from '@xtnd-dynamics/xsite-core';
 import { MomCard } from './mom-card';
 import { DadCard } from './dad-card';
 import { BabyCard } from './baby-card';

@@ -4,7 +4,7 @@ import {
   inject,
   OnInit,
 } from '@angular/core';
-import { PlatformService, prefersReducedMotion } from '@xsite/core';
+import { PlatformService, prefersReducedMotion } from '@xtnd-dynamics/xsite-core';
 
 const GLYPHS = ['💙', '💖', '⭐', '✨', '🫧'];
 const SPAWN_EVERY = 70; // ms throttle — don't spam DOM nodes on fast moves

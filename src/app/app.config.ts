@@ -4,9 +4,9 @@ import {
   provideXsiteCore,
   PlatformService,
   StorageService,
-} from '@xsite/core';
-import { provideXsiteTheme } from '@xsite/theme';
-import { provideXsiteUi } from '@xsite/ui';
+} from '@xtnd-dynamics/xsite-core';
+import { provideXsiteTheme } from '@xtnd-dynamics/xsite-theme';
+import { provideXsiteUi } from '@xtnd-dynamics/xsite-ui';
 
 export const appConfig: ApplicationConfig = {
   providers: [

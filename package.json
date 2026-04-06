@@ -18,9 +18,9 @@
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
-    "@xsite/core": "link:../../xsite-core/dist/xsite-core",
-    "@xsite/theme": "link:../../xsite-theme/dist/xsite-theme",
-    "@xsite/ui": "link:../../xsite-ui/dist/xsite-ui",
+    "@xtnd-dynamics/xsite-core": "^0.1.0",
+    "@xtnd-dynamics/xsite-theme": "^0.1.0",
+    "@xtnd-dynamics/xsite-ui": "^0.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

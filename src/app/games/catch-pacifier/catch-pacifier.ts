@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { GameService } from '../../shared/services/game.service';
-import { PlatformService } from '@xsite/core';
+import { PlatformService } from '@xtnd-dynamics/xsite-core';
 
 interface FallingPacifier {
   readonly id: number;

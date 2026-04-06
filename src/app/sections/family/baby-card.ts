@@ -3,7 +3,7 @@ import {
   Component,
   inject,
 } from '@angular/core';
-import { XsCardComponent } from '@xsite/ui';
+import { XsCardComponent } from '@xtnd-dynamics/xsite-ui';
 import { GameService, EASTER_EGGS } from '../../shared/services/game.service';
 
 /**

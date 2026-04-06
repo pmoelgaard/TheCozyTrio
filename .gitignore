@@ -42,3 +42,12 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Local pnpm override file — used to point at local XSite library builds
+# during development. CI installs from GitHub Packages instead.
+# See pnpm-workspace.yaml.example for the template.
+pnpm-workspace.yaml
+
+# Local secret vault — PATs, API keys, etc. Never committed.
+# See .secrets/README.md for details.
+.secrets/

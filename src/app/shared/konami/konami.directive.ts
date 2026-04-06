@@ -4,7 +4,7 @@ import {
   inject,
   OnInit,
 } from '@angular/core';
-import { PlatformService } from '@xsite/core';
+import { PlatformService } from '@xtnd-dynamics/xsite-core';
 import { GameService, EASTER_EGGS } from '../services/game.service';
 
 const CODE = [

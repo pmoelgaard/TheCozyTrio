@@ -3,7 +3,7 @@
 // 2. Our two theme primitive overrides, scoped to [data-theme="boy"] / [data-theme="girl"].
 // 3. Global polish (scrollbar, selection, focus).
 
-@use '@xsite/theme/src/scss/index';
+@use '@xtnd-dynamics/xsite-theme/src/scss/index';
 @use './styles/tokens-boy';
 @use './styles/tokens-girl';
 @use './styles/global';

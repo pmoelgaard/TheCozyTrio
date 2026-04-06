@@ -1,4 +1,0 @@
-overrides:
-  '@xsite/core': link:../../xsite-core/dist/xsite-core
-  '@xsite/theme': link:../../xsite-theme/dist/xsite-theme
-  '@xsite/ui': link:../../xsite-ui/dist/xsite-ui

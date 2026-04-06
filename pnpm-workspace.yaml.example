@@ -1,0 +1,21 @@
+# Local development override template.
+#
+# Copy this file to `pnpm-workspace.yaml` and adjust the paths if you want
+# to consume the XSite libraries from your local source checkouts instead
+# of the published @xtnd-dynamics/* packages from GitHub Packages.
+#
+# The real `pnpm-workspace.yaml` is git-ignored so every developer can have
+# their own local override without polluting the committed lockfile.
+#
+# Usage:
+#   1. cp pnpm-workspace.yaml.example pnpm-workspace.yaml
+#   2. Adjust the paths below if your checkouts live somewhere else
+#   3. pnpm install
+#
+# Remove the file (or delete its contents) to install the published
+# versions from GitHub Packages instead — that is what CI does.
+
+overrides:
+  '@xtnd-dynamics/xsite-core': link:../../xsite-core/dist/xsite-core
+  '@xtnd-dynamics/xsite-theme': link:../../xsite-theme/dist/xsite-theme
+  '@xtnd-dynamics/xsite-ui': link:../../xsite-ui/dist/xsite-ui

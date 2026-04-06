@@ -7,8 +7,8 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { ThemeService } from '@xsite/theme';
-import { PlatformService } from '@xsite/core';
+import { ThemeService } from '@xtnd-dynamics/xsite-theme';
+import { PlatformService } from '@xtnd-dynamics/xsite-core';
 
 /**
  * The signature move: a toggle switch that, on flip, paints the
