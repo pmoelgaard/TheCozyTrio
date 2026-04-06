@@ -7,6 +7,7 @@ import { Milestones } from './sections/milestones/milestones';
 import { GameHost } from './games/game-host';
 import { HiddenHearts } from './games/hidden-hearts/hidden-hearts';
 import { KonamiDirective } from './shared/konami/konami.directive';
+import { CursorTrailDirective } from './shared/cursor-trail/cursor-trail.directive';
 import { GameService, EASTER_EGGS } from './shared/services/game.service';
 
 const BASE_TITLE = 'The Cozy Trio';
@@ -30,7 +31,7 @@ const GAME_TITLES: Readonly<Record<string, string>> = {
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [KonamiDirective],
+  hostDirectives: [KonamiDirective, CursorTrailDirective],
 })
 export class App {
   private readonly game = inject(GameService);

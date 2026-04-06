@@ -43,3 +43,56 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-action-hover);
 }
+
+// Cursor trail keyframes — particles are appended to <body> by
+// CursorTrailDirective, so they live outside component style scope
+// and need a globally-registered animation. Each particle sets its
+// own --drift-x and --rot inline, so one keyframe drives all variants.
+@keyframes cozy-cursor-float {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate(var(--drift-x, 0), -50px)
+      rotate(var(--rot, 0))
+      scale(0.6);
+  }
+}
+
+// Print stylesheet — strip interactive chrome, flatten backgrounds,
+// and let the content reflow linearly for a reader-friendly printout.
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  // Hide anything that only makes sense on-screen.
+  cozy-game-host,
+  cozy-hidden-hearts,
+  .cozy-cursor-trail-layer,
+  .floating-layer,
+  .theme-toggle,
+  button {
+    display: none !important;
+  }
+  // Make sections flow naturally instead of stacking as viewport slides.
+  section,
+  cozy-hero,
+  cozy-family,
+  cozy-culture-blend,
+  cozy-milestones {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  // Kill animations in print — they don't render and waste layout passes.
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
