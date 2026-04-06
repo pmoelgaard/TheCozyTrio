@@ -1,0 +1,57 @@
+<section
+  class="culture"
+  xsInView
+  #inView="xsInView"
+  [class.culture--visible]="inView.isInView()"
+  [threshold]="0.15"
+>
+  <header class="culture__header">
+    <h2 class="culture__title">Two cultures, one family</h2>
+    <p class="culture__subtitle">
+      Hover (or tap) each card to see how we blend 🇵🇭 + 🇩🇰.
+    </p>
+  </header>
+
+  <div class="culture__grid">
+    @for (card of cards; track card.id; let i = $index) {
+      <button
+        type="button"
+        class="flip-card"
+        [class.flip-card--flipped]="isFlipped(card.id)"
+        [style.--i]="i"
+        (click)="toggle(card.id)"
+        [attr.aria-label]="card.category + ': ' + card.ph.title + ' meets ' + card.dk.title"
+      >
+        <div class="flip-card__inner">
+          <!-- Front: side-by-side PH and DK -->
+          <div class="flip-card__face flip-card__face--front">
+            <span class="flip-card__category">{{ card.category }}</span>
+            <div class="flip-card__pair">
+              <div class="flip-card__side">
+                <span class="flip-card__flag">🇵🇭</span>
+                <span class="flip-card__glyph">{{ card.ph.glyph }}</span>
+                <strong>{{ card.ph.title }}</strong>
+                <small>{{ card.ph.body }}</small>
+              </div>
+              <span class="flip-card__plus">+</span>
+              <div class="flip-card__side">
+                <span class="flip-card__flag">🇩🇰</span>
+                <span class="flip-card__glyph">{{ card.dk.glyph }}</span>
+                <strong>{{ card.dk.title }}</strong>
+                <small>{{ card.dk.body }}</small>
+              </div>
+            </div>
+            <span class="flip-card__hint">flip →</span>
+          </div>
+
+          <!-- Back: the blend -->
+          <div class="flip-card__face flip-card__face--back">
+            <span class="flip-card__back-glyph">✨</span>
+            <p>{{ card.blend }}</p>
+            <span class="flip-card__hint">← flip back</span>
+          </div>
+        </div>
+      </button>
+    }
+  </div>
+</section>

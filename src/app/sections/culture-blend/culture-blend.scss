@@ -1,0 +1,221 @@
+:host {
+  display: block;
+}
+
+.culture {
+  padding: 96px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      var(--color-surface-secondary) 50%,
+      transparent 100%
+    );
+}
+
+.culture__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.culture__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.culture__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2vw, 20px);
+  margin: 0;
+  color: var(--color-text-primary);
+  opacity: 0.75;
+}
+
+.culture__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─────── The flip card ─────────────────────────────────────────
+
+.flip-card {
+  all: unset;
+  cursor: pointer;
+  perspective: 1200px;
+  aspect-ratio: 4 / 3;
+  min-height: 240px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--i, 0) * 100ms);
+
+  &:focus-visible {
+    outline: 3px solid var(--color-action-default);
+    outline-offset: 4px;
+    border-radius: 20px;
+  }
+}
+
+.culture--visible .flip-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+// Flip on hover (desktop) or on explicit class (touch/click).
+.flip-card:hover .flip-card__inner,
+.flip-card--flipped .flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--color-surface-elevated);
+  box-shadow:
+    0 20px 40px -20px rgb(0 0 0 / 0.2),
+    0 0 0 2px var(--color-border-default);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card__face--back {
+  transform: rotateY(180deg);
+  background: var(--color-action-default);
+  color: var(--color-text-on-action, #ffffff);
+
+  p {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    line-height: 1.35;
+  }
+}
+
+.flip-card__category {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-action-default);
+  padding: 2px 10px;
+  background: var(--color-surface-secondary);
+  border-radius: 999px;
+}
+
+.flip-card__pair {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding-top: 12px;
+}
+
+.flip-card__side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+
+  strong {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  small {
+    font-size: 11px;
+    opacity: 0.7;
+    line-height: 1.3;
+  }
+}
+
+.flip-card__flag {
+  font-size: 20px;
+}
+
+.flip-card__glyph {
+  font-size: 30px;
+}
+
+.flip-card__plus {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-action-default);
+  flex-shrink: 0;
+}
+
+.flip-card__hint {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  font-size: 11px;
+  font-family: var(--font-body);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.flip-card__back-glyph {
+  font-size: 36px;
+  margin-bottom: 12px;
+  animation: back-sparkle 2s ease-in-out infinite;
+}
+
+@keyframes back-sparkle {
+  0%, 100% { transform: scale(1) rotate(0); }
+  50%      { transform: scale(1.15) rotate(15deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card,
+  .flip-card__inner,
+  .flip-card__back-glyph {
+    animation: none !important;
+    transition: none !important;
+  }
+  .flip-card:hover .flip-card__inner,
+  .flip-card--flipped .flip-card__inner {
+    transform: none;
+  }
+  // When reduced-motion, just show both sides stacked via simple class swap.
+}
