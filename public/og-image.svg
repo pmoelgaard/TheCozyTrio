@@ -2,62 +2,97 @@
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FFF5F9"/>
-      <stop offset="50%" stop-color="#F0F7FF"/>
-      <stop offset="100%" stop-color="#E8F1FF"/>
+      <stop offset="55%" stop-color="#F0F7FF"/>
+      <stop offset="100%" stop-color="#E0ECFF"/>
     </linearGradient>
-    <linearGradient id="house" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="houseBody" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FFD166"/>
       <stop offset="100%" stop-color="#F5A3C0"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8E7C6"/>
+      <stop offset="100%" stop-color="#A8D5A6"/>
     </linearGradient>
   </defs>
 
   <!-- Sky -->
   <rect width="1200" height="630" fill="url(#sky)"/>
 
-  <!-- Soft clouds -->
-  <g fill="#FFFFFF" opacity="0.85">
-    <ellipse cx="180" cy="140" rx="80" ry="26"/>
-    <ellipse cx="240" cy="120" rx="60" ry="22"/>
-    <ellipse cx="980" cy="180" rx="90" ry="28"/>
-    <ellipse cx="1050" cy="160" rx="55" ry="20"/>
+  <!-- Sun -->
+  <circle cx="1040" cy="130" r="48" fill="#FFD166" opacity="0.85"/>
+  <circle cx="1040" cy="130" r="64" fill="#FFD166" opacity="0.25"/>
+
+  <!-- Clouds -->
+  <g fill="#FFFFFF" opacity="0.9">
+    <ellipse cx="180" cy="150" rx="70" ry="22"/>
+    <ellipse cx="230" cy="132" rx="52" ry="18"/>
+    <ellipse cx="820" cy="180" rx="80" ry="24"/>
+    <ellipse cx="880" cy="162" rx="48" ry="16"/>
   </g>
 
-  <!-- House silhouette -->
-  <g transform="translate(420 240)">
-    <polygon points="180,0 360,140 0,140" fill="#E8729A"/>
-    <rect x="30" y="140" width="300" height="180" fill="url(#house)"/>
-    <rect x="140" y="210" width="80" height="110" fill="#4A90D9" rx="6"/>
-    <circle cx="180" cy="270" r="4" fill="#FFF"/>
-    <rect x="60" y="170" width="50" height="50" fill="#FFF" rx="4"/>
-    <rect x="250" y="170" width="50" height="50" fill="#FFF" rx="4"/>
-    <!-- chimney smoke -->
-    <g fill="#FFFFFF" opacity="0.9">
-      <circle cx="300" cy="-20" r="14"/>
-      <circle cx="320" cy="-50" r="11"/>
-      <circle cx="305" cy="-80" r="9"/>
-    </g>
-  </g>
+  <!-- Ground strip -->
+  <rect x="0" y="540" width="1200" height="90" fill="url(#ground)"/>
 
-  <!-- Title -->
-  <g font-family="'Baloo 2', system-ui, sans-serif" text-anchor="middle">
-    <text x="600" y="500" font-size="96" font-weight="800" fill="#2C5F9E">The Cozy Trio</text>
-    <text x="600" y="560" font-size="34" font-weight="600" fill="#C44D78">
+  <!-- Title block (top third, safely above the scene) -->
+  <g font-family="'Baloo 2', 'Nunito', Helvetica, sans-serif" text-anchor="middle">
+    <text x="600" y="180" font-size="104" font-weight="800" fill="#2C5F9E" letter-spacing="2">
+      The Cozy Trio
+    </text>
+    <text x="600" y="236" font-size="32" font-weight="600" fill="#C44D78">
       A Danish-Filipino love story, one tiny chapter at a time
     </text>
   </g>
 
-  <!-- Flags -->
-  <g transform="translate(540 590)">
-    <!-- Danish flag -->
-    <rect width="48" height="32" fill="#C8102E"/>
-    <rect x="14" width="6" height="32" fill="#FFF"/>
-    <rect y="13" width="48" height="6" fill="#FFF"/>
+  <!-- House scene, sitting on the ground strip -->
+  <g transform="translate(470 300)">
+    <!-- Roof -->
+    <polygon points="130,0 260,110 0,110" fill="#E8729A"/>
+    <!-- Roof trim -->
+    <rect x="0" y="105" width="260" height="8" fill="#C44D78"/>
+    <!-- Body -->
+    <rect x="20" y="113" width="220" height="130" fill="url(#houseBody)" rx="4"/>
+    <!-- Door -->
+    <rect x="105" y="165" width="50" height="78" fill="#4A90D9" rx="4"/>
+    <circle cx="145" cy="210" r="3" fill="#FFF"/>
+    <!-- Windows -->
+    <rect x="40" y="135" width="42" height="42" fill="#FFFFFF" rx="3" stroke="#C44D78" stroke-width="3"/>
+    <line x1="61" y1="135" x2="61" y2="177" stroke="#C44D78" stroke-width="2"/>
+    <line x1="40" y1="156" x2="82" y2="156" stroke="#C44D78" stroke-width="2"/>
+    <rect x="178" y="135" width="42" height="42" fill="#FFFFFF" rx="3" stroke="#C44D78" stroke-width="3"/>
+    <line x1="199" y1="135" x2="199" y2="177" stroke="#C44D78" stroke-width="2"/>
+    <line x1="178" y1="156" x2="220" y2="156" stroke="#C44D78" stroke-width="2"/>
+    <!-- Chimney -->
+    <rect x="190" y="20" width="26" height="50" fill="#C44D78"/>
+    <!-- Smoke -->
+    <g fill="#FFFFFF" opacity="0.92">
+      <circle cx="203" cy="8" r="11"/>
+      <circle cx="216" cy="-16" r="9"/>
+      <circle cx="205" cy="-38" r="7"/>
+    </g>
   </g>
-  <g transform="translate(612 590)">
+
+  <!-- Flags row, centered under the subtitle but above the scene -->
+  <g transform="translate(560 268)">
+    <!-- Danish flag -->
+    <g>
+      <rect width="44" height="30" fill="#C8102E"/>
+      <rect x="13" width="6" height="30" fill="#FFF"/>
+      <rect y="12" width="44" height="6" fill="#FFF"/>
+    </g>
+    <!-- Heart (vector, not emoji — resvg has no color-emoji font) -->
+    <path
+      transform="translate(58 4)"
+      d="M12 22 L1 11 A6.5 6.5 0 0 1 12 4 A6.5 6.5 0 0 1 23 11 Z"
+      fill="#E8729A"
+      stroke="#C44D78"
+      stroke-width="1.5"
+      stroke-linejoin="round"/>
     <!-- Filipino flag (simplified) -->
-    <rect width="48" height="16" fill="#0038A8"/>
-    <rect y="16" width="48" height="16" fill="#CE1126"/>
-    <polygon points="0,0 20,16 0,32" fill="#FFFFFF"/>
-    <circle cx="7" cy="16" r="2.5" fill="#FCD116"/>
+    <g transform="translate(96 0)">
+      <rect width="44" height="15" fill="#0038A8"/>
+      <rect y="15" width="44" height="15" fill="#CE1126"/>
+      <polygon points="0,0 20,15 0,30" fill="#FFFFFF"/>
+      <circle cx="7" cy="15" r="2.4" fill="#FCD116"/>
+    </g>
   </g>
 </svg>
