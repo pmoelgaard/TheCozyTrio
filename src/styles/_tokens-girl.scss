@@ -1,0 +1,24 @@
+// Girl theme — warm pinks, dusty roses, lavender accents.
+// Overrides the XSite primitive HSL triples scoped to [data-theme="girl"].
+// Semantic tokens in @xsite/theme/src/scss/semantic/_color.scss cascade automatically.
+
+[data-theme='girl'] {
+  // Brand scale (rose → magenta)
+  --_brand-300: 339 80% 80%; // #F5A3C0  — soft highlight
+  --_brand-400: 339 74% 74%;
+  --_brand-500: 340 72% 68%; // #E8729A  — primary
+  --_brand-600: 338 50% 54%; // #C44D78  — hover/active
+
+  // Accent scale (same warm yellow — bridge between both themes)
+  --_accent-300: 41 100% 81%;
+  --_accent-400: 42 100% 70%; // #FFD166
+  --_accent-500: 39 90% 63%;
+
+  // Neutral scale — tinted to a pink-washed paper feel
+  --_neutral-0: 0 0% 100%;    // #FFFFFF surface
+  --_neutral-50: 336 100% 98%; // #FFF5F9 background
+
+  // Repurpose success for the "secondary" lavender so chips/tags
+  // have a playful purple alternative.
+  --_success-500: 266 71% 73%; // #B388EB
+}

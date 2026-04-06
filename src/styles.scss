@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+// Global entry point.
+// 1. XSite primitive/semantic/component token stack (defines all --color-*, --font-*, --radius-*, etc.)
+// 2. Our two theme primitive overrides, scoped to [data-theme="boy"] / [data-theme="girl"].
+// 3. Global polish (scrollbar, selection, focus).
+
+@use '@xsite/theme/src/scss/index';
+@use './styles/tokens-boy';
+@use './styles/tokens-girl';
+@use './styles/global';
+
+// Project-specific display font (Baloo 2) loaded via <link> in index.html.
+:root {
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+}

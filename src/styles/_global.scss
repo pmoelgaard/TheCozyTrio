@@ -1,0 +1,45 @@
+// Global polish that isn't theme-specific.
+// Selection color + focus rings + scrollbar + smooth scroll.
+
+html {
+  scroll-behavior: smooth;
+  // Default page surface follows the active theme.
+  background: var(--color-surface-base);
+  color: var(--color-text-primary);
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body, 'Nunito', system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-action-default);
+  color: var(--color-text-on-action);
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+// Themed custom scrollbar (webkit)
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-action-default);
+  border-radius: 999px;
+  border: 3px solid var(--color-surface-secondary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-action-hover);
+}

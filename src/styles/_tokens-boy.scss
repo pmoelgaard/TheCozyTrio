@@ -1,0 +1,24 @@
+// Boy theme — blues, warm yellows, cozy sage.
+// Overrides the XSite primitive HSL triples scoped to [data-theme="boy"].
+// Semantic tokens in @xsite/theme/src/scss/semantic/_color.scss cascade automatically.
+
+[data-theme='boy'] {
+  // Brand scale (cornflower → deep navy)
+  --_brand-300: 214 100% 75%; // #7EB6FF  — soft highlight
+  --_brand-400: 211 65% 57%;  // #4A90D9  — primary
+  --_brand-500: 211 65% 57%;  // #4A90D9  — primary (action-default reads this)
+  --_brand-600: 213 56% 40%;  // #2C5F9E  — hover/active
+
+  // Accent scale (warm yellow — shared with girl, keeps cozy warmth)
+  --_accent-300: 41 100% 81%;
+  --_accent-400: 42 100% 70%; // #FFD166
+  --_accent-500: 39 90% 63%;
+
+  // Neutral scale — tinted to a blue-washed paper feel
+  --_neutral-0: 0 0% 100%;     // #FFFFFF surface
+  --_neutral-50: 212 100% 97%; // #F0F7FF background
+
+  // Repurpose success for the "secondary" sage green so card borders/badges
+  // read cozy-cool when they want variety.
+  --_success-500: 153 45% 61%; // #6EC8A0
+}
