@@ -5,14 +5,7 @@
   </p>
 
   <div class="smoke__toggle">
-    <button type="button" (click)="setTheme('boy')"
-            [attr.aria-pressed]="theme.theme() === 'boy'">
-      💙 Boy theme
-    </button>
-    <button type="button" (click)="setTheme('girl')"
-            [attr.aria-pressed]="theme.theme() === 'girl'">
-      💖 Girl theme
-    </button>
+    <cozy-theme-toggle />
   </div>
 
   <section class="smoke__swatches" aria-label="Theme swatches">

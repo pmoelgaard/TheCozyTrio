@@ -1,0 +1,18 @@
+<button
+  #track
+  type="button"
+  class="toggle"
+  [class.toggle--girl]="theme() === 'girl'"
+  role="switch"
+  [attr.aria-checked]="theme() === 'girl'"
+  aria-label="Switch between boy and girl themes"
+  (click)="onClick($event)"
+>
+  <span class="toggle__icon toggle__icon--boy" aria-hidden="true">💙</span>
+  <span class="toggle__thumb" aria-hidden="true">
+    <span class="toggle__thumb-emoji">
+      {{ theme() === 'girl' ? '🦄' : '🚀' }}
+    </span>
+  </span>
+  <span class="toggle__icon toggle__icon--girl" aria-hidden="true">💖</span>
+</button>
