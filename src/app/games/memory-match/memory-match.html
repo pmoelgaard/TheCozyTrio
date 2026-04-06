@@ -1,0 +1,36 @@
+<div class="memory">
+  <div class="memory__hud">
+    <span>Moves: <strong>{{ moves() }}</strong></span>
+    <span>Matched: <strong>{{ matchedCount() / 2 }}/6</strong></span>
+    @if (best(); as b) {
+      <span>🏆 Best: {{ b }}</span>
+    }
+  </div>
+
+  <div class="memory__grid" [class.memory__grid--done]="finished()">
+    @for (card of cards(); track card.id) {
+      <button
+        type="button"
+        class="memory__card"
+        [class.memory__card--flipped]="card.flipped || card.matched"
+        [class.memory__card--matched]="card.matched"
+        (click)="flip(card.id)"
+        [attr.aria-label]="card.flipped ? card.glyph : 'Hidden card'"
+      >
+        <span class="memory__inner">
+          <span class="memory__front">?</span>
+          <span class="memory__back">{{ card.glyph }}</span>
+        </span>
+      </button>
+    }
+  </div>
+
+  @if (finished()) {
+    <div class="memory__win">
+      <p>🎉 All matched in <strong>{{ moves() }}</strong> moves!</p>
+      <button type="button" class="memory__again" (click)="reset()">
+        Play again
+      </button>
+    </div>
+  }
+</div>

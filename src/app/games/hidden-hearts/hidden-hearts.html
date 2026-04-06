@@ -1,0 +1,19 @@
+@for (spot of spots; track spot.id) {
+  <button
+    type="button"
+    class="heart"
+    [class.heart--found]="isFound(spot.id)"
+    [style.top]="spot.top"
+    [style.left]="spot.left"
+    [style.transform]="'rotate(' + spot.rotate + ')'"
+    (click)="find(spot.id)"
+    [attr.aria-label]="'Hidden heart ' + spot.id"
+  >
+    💗
+  </button>
+}
+
+<div class="heart-counter" [class.heart-counter--full]="allFound()">
+  <span class="heart-counter__glyph">💖</span>
+  <span class="heart-counter__text">{{ count() }} / 10</span>
+</div>

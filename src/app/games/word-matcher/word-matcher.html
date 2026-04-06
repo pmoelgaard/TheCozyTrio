@@ -1,0 +1,49 @@
+<div class="wm">
+  <p class="wm__instr">
+    Pick an English word, then click its 🇵🇭 Tagalog AND 🇩🇰 Danish match.
+  </p>
+
+  <div class="wm__columns">
+    <ul class="wm__col">
+      @for (p of pairs; track p.key) {
+        <li>
+          <button
+            type="button"
+            class="wm__english"
+            [class.wm__english--selected]="selectedPair() === p.key"
+            [class.wm__english--done]="pairMatched(p.key)"
+            (click)="selectPair(p.key)"
+          >
+            {{ p.english }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    <ul class="wm__col wm__col--tiles">
+      @for (t of tiles(); track t.id) {
+        <li>
+          <button
+            type="button"
+            class="wm__tile"
+            [class.wm__tile--matched]="isMatched(t.id)"
+            [class.wm__tile--wrong]="wrong() === t.id"
+            (click)="tryMatch(t)"
+          >
+            <span class="wm__flag">{{ t.lang === 'tl' ? '🇵🇭' : '🇩🇰' }}</span>
+            {{ t.label }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+
+  @if (done()) {
+    <div class="wm__win">
+      <p>🎉 Perfect! All words matched.</p>
+      <button type="button" class="wm__again" (click)="reset()">
+        Play again
+      </button>
+    </div>
+  }
+</div>

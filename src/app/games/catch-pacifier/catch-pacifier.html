@@ -1,0 +1,35 @@
+<div class="pacifier-game">
+  <div class="pacifier-game__hud">
+    <span>⏱ {{ timeLeft() }}s</span>
+    <span>⭐ Score: {{ score() }}</span>
+    @if (highScore(); as hs) {
+      <span>🏆 Best: {{ hs }}</span>
+    }
+  </div>
+
+  <div class="pacifier-game__field">
+    @for (p of pacifiers(); track p.id) {
+      <button
+        type="button"
+        class="pacifier-game__item"
+        [class.pacifier-game__item--caught]="p.caught"
+        [style.left.%]="p.left"
+        [style.animation-duration.s]="p.duration"
+        (click)="catchOne(p.id)"
+        aria-label="Catch pacifier"
+      >
+        🍼
+      </button>
+    }
+
+    @if (finished()) {
+      <div class="pacifier-game__end">
+        <h3>Time's up!</h3>
+        <p>You caught <strong>{{ score() }}</strong> pacifiers.</p>
+        <button type="button" class="pacifier-game__again" (click)="start()">
+          Play again
+        </button>
+      </div>
+    }
+  </div>
+</div>

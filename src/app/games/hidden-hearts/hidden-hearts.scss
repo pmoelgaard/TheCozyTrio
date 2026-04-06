@@ -1,0 +1,97 @@
+:host {
+  // Absolute children are positioned relative to the document body,
+  // which is how the plan wants hearts scattered throughout the page.
+  display: contents;
+}
+
+.heart {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  font-size: 18px;
+  opacity: 0.12;
+  z-index: 5;
+  filter: grayscale(0.3);
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.3s ease;
+  will-change: opacity;
+
+  &:hover {
+    opacity: 0.95;
+    filter: grayscale(0) drop-shadow(0 0 8px var(--color-accent));
+    transform: scale(1.5) rotate(0deg) !important;
+  }
+
+  &--found {
+    animation: heart-collected 0.6s ease-out forwards;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    opacity: 0.9;
+    outline: 2px solid var(--color-action-default);
+    outline-offset: 4px;
+  }
+}
+
+@keyframes heart-collected {
+  0%   { transform: scale(1.5); opacity: 1; }
+  50%  { transform: scale(2.5) translateY(-20px); opacity: 1; }
+  100% { transform: scale(0) translateY(-60px); opacity: 0; }
+}
+
+.heart-counter {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--color-surface-elevated);
+  border: 2px solid var(--color-action-default);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px -8px rgb(0 0 0 / 0.2);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s ease;
+}
+
+.heart-counter__glyph {
+  font-size: 18px;
+  animation: counter-pulse 2s ease-in-out infinite;
+}
+
+@keyframes counter-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.15); }
+}
+
+.heart-counter--full {
+  background: var(--color-action-default);
+  color: var(--color-text-on-action, #fff);
+  animation: counter-win 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes counter-win {
+  0%   { transform: scale(1) rotate(0); }
+  40%  { transform: scale(1.3) rotate(10deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heart, .heart-counter__glyph {
+    animation: none !important;
+    transition: opacity 0.2s ease !important;
+  }
+  .heart {
+    opacity: 0.4;
+  }
+}

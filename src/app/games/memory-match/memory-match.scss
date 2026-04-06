@@ -1,0 +1,121 @@
+:host { display: block; }
+
+.memory {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.memory__hud {
+  display: flex;
+  justify-content: space-around;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  padding: 10px 12px;
+  background: var(--color-surface-secondary);
+  border-radius: 12px;
+  strong { color: var(--color-action-default); }
+}
+
+.memory__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.memory__card {
+  all: unset;
+  cursor: pointer;
+  aspect-ratio: 1;
+  perspective: 700px;
+
+  &:focus-visible {
+    outline: 3px solid var(--color-action-default);
+    outline-offset: 3px;
+    border-radius: 12px;
+  }
+}
+
+.memory__inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.memory__card--flipped .memory__inner {
+  transform: rotateY(180deg);
+}
+
+.memory__front,
+.memory__back {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  font-size: 36px;
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+.memory__front {
+  background: var(--color-action-default);
+  color: var(--color-text-on-action, #fff);
+}
+
+.memory__back {
+  background: var(--color-surface-elevated);
+  border: 2px solid var(--color-action-default);
+  transform: rotateY(180deg);
+}
+
+.memory__card--matched .memory__back {
+  animation: match-pop 0.5s ease-out;
+  border-color: var(--color-accent);
+  background: var(--color-surface-secondary);
+}
+
+@keyframes match-pop {
+  0%   { transform: rotateY(180deg) scale(1); }
+  50%  { transform: rotateY(180deg) scale(1.15); }
+  100% { transform: rotateY(180deg) scale(1); }
+}
+
+.memory__win {
+  text-align: center;
+  font-family: var(--font-display);
+  p {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0 0 12px;
+  }
+}
+
+.memory__again {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 800;
+  background: var(--color-action-default);
+  color: var(--color-text-on-action, #fff);
+  padding: 10px 24px;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
+  &:hover { transform: scale(1.05); }
+  &:focus-visible { outline: 3px solid var(--color-action-default); outline-offset: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory__inner, .memory__card--matched .memory__back {
+    transition: none !important;
+    animation: none !important;
+  }
+}

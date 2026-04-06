@@ -1,0 +1,17 @@
+<div class="karaoke">
+  <div class="karaoke__stage">
+    <div class="karaoke__disco" aria-hidden="true">🪩</div>
+    <div class="karaoke__mom">👩‍🎤</div>
+    <div class="karaoke__notes" aria-hidden="true">
+      <span>🎵</span><span>🎶</span><span>♪</span><span>♫</span><span>🎵</span>
+    </div>
+  </div>
+
+  <ul class="karaoke__lyrics">
+    @for (line of lyrics; track $index) {
+      <li [style.--i]="$index">{{ line }}</li>
+    }
+  </ul>
+
+  <p class="karaoke__footer">Easter egg unlocked! 🎉</p>
+</div>

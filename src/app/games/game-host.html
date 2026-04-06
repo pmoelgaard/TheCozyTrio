@@ -1,0 +1,33 @@
+@if (active() !== null) {
+  <xs-dialog
+    [open]="isOpen()"
+    (openChange)="onOpenChange($event)"
+    [title]="title()"
+    size="md"
+  >
+    @if (is(eggs.peekABoo)) {
+      <cozy-peek-a-boo (won)="onWon()" />
+    }
+    @if (is(eggs.catchPacifier)) {
+      <cozy-catch-pacifier (won)="onWon()" />
+    }
+    @if (is(eggs.memoryMatch)) {
+      <cozy-memory-match (won)="onWon()" />
+    }
+    @if (is(eggs.wordMatcher)) {
+      <cozy-word-matcher (won)="onWon()" />
+    }
+    @if (is(eggs.momKaraoke)) {
+      <cozy-mom-karaoke (won)="onWon()" />
+    }
+    @if (is(eggs.dadHygge)) {
+      <cozy-dad-hygge (won)="onWon()" />
+    }
+    @if (is(eggs.konami)) {
+      <div class="game-host__konami">
+        <div class="game-host__konami-emoji">💃🕺👶</div>
+        <p>You found all the secrets! The whole cozy trio is dancing for you.</p>
+      </div>
+    }
+  </xs-dialog>
+}

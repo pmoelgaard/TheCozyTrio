@@ -1,0 +1,63 @@
+:host { display: block; }
+
+.peek {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.peek__instr {
+  font-family: var(--font-body);
+  font-size: 16px;
+  margin: 0 0 16px;
+  opacity: 0.8;
+}
+
+.peek__scene {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 16px;
+
+  svg {
+    width: 260px;
+    height: auto;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-action-default);
+    outline-offset: 4px;
+  }
+}
+
+.peek__hand {
+  transform-origin: 120px 110px;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.peek__hand--left {
+  transform: translate(-5px, 0);
+}
+.peek__hand--right {
+  transform: translate(5px, 0);
+}
+
+.peek--showing .peek__hand--left {
+  transform: translate(-90px, -20px) rotate(-20deg);
+}
+.peek--showing .peek__hand--right {
+  transform: translate(90px, -20px) rotate(20deg);
+}
+
+.peek__score {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  margin: 12px 0 0;
+  color: var(--color-action-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .peek__hand {
+    transition: none !important;
+  }
+}

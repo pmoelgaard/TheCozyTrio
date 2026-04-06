@@ -1,0 +1,42 @@
+<div class="peek" [class.peek--showing]="showing()">
+  <p class="peek__instr">Click the hands to say hi!</p>
+  <button
+    type="button"
+    class="peek__scene"
+    (click)="peek()"
+    aria-label="Play peek-a-boo"
+  >
+    <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Baby face -->
+      <circle cx="120" cy="110" r="62" fill="#f8d3b8" />
+      <!-- Eyes -->
+      <circle cx="102" cy="105" r="5" fill="#1a1a1a" />
+      <circle cx="138" cy="105" r="5" fill="#1a1a1a" />
+      <circle cx="103" cy="103" r="1.5" fill="#fff" />
+      <circle cx="139" cy="103" r="1.5" fill="#fff" />
+      <!-- Cheeks -->
+      <circle cx="88" cy="122" r="7" fill="#ffb3c6" opacity="0.7" />
+      <circle cx="152" cy="122" r="7" fill="#ffb3c6" opacity="0.7" />
+      <!-- Smile -->
+      <path d="M104 130 Q120 144 136 130" stroke="#1a1a1a"
+            stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- Hair tuft -->
+      <path d="M108 62 Q120 52 132 62 Q126 58 120 58 Q114 58 108 62" fill="#7a5230" />
+
+      <!-- Hands (covers the face). Two groups that slide apart. -->
+      <g class="peek__hand peek__hand--left">
+        <ellipse cx="85" cy="110" rx="50" ry="62" fill="#f5c9a8" />
+        <circle cx="70" cy="80" r="6" fill="#f5c9a8" />
+        <circle cx="72" cy="95" r="7" fill="#f5c9a8" />
+        <circle cx="76" cy="112" r="8" fill="#f5c9a8" />
+      </g>
+      <g class="peek__hand peek__hand--right">
+        <ellipse cx="155" cy="110" rx="50" ry="62" fill="#f5c9a8" />
+        <circle cx="170" cy="80" r="6" fill="#f5c9a8" />
+        <circle cx="168" cy="95" r="7" fill="#f5c9a8" />
+        <circle cx="164" cy="112" r="8" fill="#f5c9a8" />
+      </g>
+    </svg>
+  </button>
+  <p class="peek__score">Peek #{{ opens() }} / 6</p>
+</div>
