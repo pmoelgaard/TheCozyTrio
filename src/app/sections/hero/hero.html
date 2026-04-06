@@ -1,0 +1,138 @@
+<section
+  class="hero"
+  [style.--parallax-x.px]="parallaxX()"
+  [style.--parallax-y.px]="parallaxY()"
+>
+  <cozy-floating-elements
+    class="hero__floaters"
+    [count]="14"
+    [glyphs]="['💙', '💖', '⭐', '✨', '☁️']"
+  />
+
+  <!-- Parallax cloud layers — three depths. -->
+  <div class="hero__clouds hero__clouds--back" aria-hidden="true">
+    <span class="cloud cloud--1">☁️</span>
+    <span class="cloud cloud--2">☁️</span>
+  </div>
+  <div class="hero__clouds hero__clouds--mid" aria-hidden="true">
+    <span class="cloud cloud--3">☁️</span>
+    <span class="cloud cloud--4">☁️</span>
+  </div>
+  <div class="hero__clouds hero__clouds--front" aria-hidden="true">
+    <span class="cloud cloud--5">☁️</span>
+  </div>
+
+  <!-- Theme toggle pinned top-right. -->
+  <div class="hero__toggle">
+    <cozy-theme-toggle />
+  </div>
+
+  <div class="hero__content">
+    <h1 class="hero__title" aria-label="The Cozy Trio">
+      @for (letter of titleLetters; track $index) {
+        <span
+          class="hero__letter"
+          [class.hero__letter--space]="letter === ' '"
+          [style.--i]="$index"
+          aria-hidden="true"
+          >{{ letter === ' ' ? '\u00A0' : letter }}</span
+        >
+      }
+    </h1>
+
+    <p class="hero__subtitle">
+      A Danish–Filipino love story,<br />
+      one tiny chapter at a time.
+    </p>
+
+    <!-- Inline animated family scene. Every moving part is pure CSS. -->
+    <svg
+      class="hero__scene"
+      viewBox="0 0 400 260"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="A cartoon family: mom, dad, and baby in front of a cozy house"
+      role="img"
+    >
+      <!-- House -->
+      <g class="scene-house">
+        <rect x="140" y="140" width="120" height="90" rx="6"
+              fill="var(--color-surface-elevated)"
+              stroke="var(--color-action-default)" stroke-width="3" />
+        <polygon points="130,140 270,140 200,90"
+                 fill="var(--color-action-default)" />
+        <rect x="185" y="175" width="30" height="55" rx="3"
+              fill="var(--color-accent)" />
+        <circle cx="210" cy="205" r="2" fill="var(--color-action-hover)" />
+        <rect x="150" y="155" width="22" height="22" rx="2"
+              fill="var(--color-accent)" opacity="0.7" />
+        <rect x="228" y="155" width="22" height="22" rx="2"
+              fill="var(--color-accent)" opacity="0.7" />
+        <!-- Chimney with animated smoke -->
+        <rect x="235" y="100" width="14" height="30" fill="var(--color-action-hover)" />
+        <g class="scene-smoke">
+          <circle cx="242" cy="95" r="5" fill="#cbd5e1" opacity="0.8" />
+          <circle cx="246" cy="80" r="6" fill="#cbd5e1" opacity="0.6" />
+          <circle cx="240" cy="65" r="7" fill="#cbd5e1" opacity="0.4" />
+        </g>
+      </g>
+
+      <!-- Tree (leaves rustle) -->
+      <g class="scene-tree">
+        <rect x="60" y="160" width="10" height="60" fill="#8b5a2b" />
+        <circle class="scene-leaves" cx="65" cy="150" r="28"
+                fill="var(--color-action-default)" opacity="0.85" />
+      </g>
+
+      <!-- Mom (hair sways) -->
+      <g class="scene-mom" transform="translate(90,180)">
+        <circle cx="0" cy="0" r="14" fill="#f5c9a8" />
+        <path class="scene-mom-hair" d="M-14 -4 Q-18 -20 0 -22 Q18 -20 14 -4 L14 10 L-14 10 Z"
+              fill="#1a1a1a" />
+        <rect x="-12" y="14" width="24" height="30" rx="4"
+              fill="var(--color-action-default)" />
+        <!-- Eyes -->
+        <circle cx="-4" cy="-2" r="1.5" fill="#1a1a1a" />
+        <circle cx="4" cy="-2" r="1.5" fill="#1a1a1a" />
+        <!-- Smile -->
+        <path d="M-4 5 Q0 8 4 5" stroke="#1a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round" />
+      </g>
+
+      <!-- Dad (blinks) -->
+      <g class="scene-dad" transform="translate(310,180)">
+        <circle cx="0" cy="0" r="14" fill="#f1c6a8" />
+        <path d="M-14 -6 Q-10 -16 0 -16 Q10 -16 14 -6 L12 -2 L-12 -2 Z"
+              fill="#c48f5b" />
+        <rect x="-12" y="14" width="24" height="30" rx="4"
+              fill="var(--color-accent)" />
+        <!-- Eyes -->
+        <g class="scene-dad-eyes">
+          <circle cx="-4" cy="-2" r="1.5" fill="#1a1a1a" />
+          <circle cx="4" cy="-2" r="1.5" fill="#1a1a1a" />
+        </g>
+        <!-- Smile -->
+        <path d="M-4 5 Q0 8 4 5" stroke="#1a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round" />
+      </g>
+
+      <!-- Baby (kicks) -->
+      <g class="scene-baby" transform="translate(200,215)">
+        <circle cx="0" cy="0" r="10" fill="#f8d3b8" />
+        <path d="M-10 -2 Q-6 -10 0 -10 Q6 -10 10 -2" fill="#7a5230" />
+        <rect x="-8" y="8" width="16" height="18" rx="8"
+              fill="var(--color-accent)" />
+        <circle cx="-3" cy="-1" r="1" fill="#1a1a1a" />
+        <circle cx="3" cy="-1" r="1" fill="#1a1a1a" />
+        <circle cx="0" cy="4" r="1.2" fill="#e8729a" />
+      </g>
+
+      <!-- Ground -->
+      <line x1="0" y1="230" x2="400" y2="230"
+            stroke="var(--color-action-default)" stroke-width="2"
+            stroke-dasharray="4 4" opacity="0.4" />
+    </svg>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <span class="hero__scroll-arrow">↓</span>
+    </div>
+  </div>
+</section>

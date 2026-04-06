@@ -1,0 +1,277 @@
+// Hero section: cinematic landing with animated SVG scene + parallax.
+
+:host {
+  display: block;
+}
+
+.hero {
+  // --parallax-x / --parallax-y are bound from the component
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 48px 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      ellipse at top,
+      var(--color-surface-elevated),
+      var(--color-surface-base) 70%
+    );
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero__floaters {
+  // cozy-floating-elements sits behind everything
+  z-index: 0;
+}
+
+.hero__toggle {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+}
+
+// ───── Parallax clouds ─────────────────────────────────────────────
+
+.hero__clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cloud {
+  position: absolute;
+  font-size: 64px;
+  opacity: 0.5;
+  filter: drop-shadow(0 6px 12px rgb(0 0 0 / 0.08));
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero__clouds--back .cloud {
+  transform: translate(calc(var(--parallax-x) * 0.3), calc(var(--parallax-y) * 0.3));
+}
+
+.hero__clouds--mid .cloud {
+  transform: translate(calc(var(--parallax-x) * 0.6), calc(var(--parallax-y) * 0.6));
+}
+
+.hero__clouds--front .cloud {
+  transform: translate(calc(var(--parallax-x) * 1), calc(var(--parallax-y) * 1));
+}
+
+.cloud--1 { top: 8%;  left: 6%;  font-size: 56px; }
+.cloud--2 { top: 14%; right: 10%; font-size: 72px; }
+.cloud--3 { top: 22%; left: 18%; font-size: 48px; }
+.cloud--4 { top: 6%;  right: 30%; font-size: 64px; }
+.cloud--5 { top: 28%; left: 42%; font-size: 40px; opacity: 0.4; }
+
+// ───── Content stack ───────────────────────────────────────────────
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+// ───── Title — per-letter bounce-in ────────────────────────────────
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__letter {
+  display: inline-block;
+  // --i is bound per letter in the template
+  animation: letter-bounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 200ms);
+  transform-origin: 50% 100%;
+}
+
+.hero__letter--space {
+  width: 0.3em;
+}
+
+@keyframes letter-bounce {
+  0% {
+    transform: translateY(-120%) scale(0.5) rotate(-20deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10%) scale(1.1) rotate(4deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+// ───── Subtitle ────────────────────────────────────────────────────
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--color-text-primary);
+  opacity: 0;
+  margin: 0;
+  animation: subtitle-fade 0.8s ease-out 1.4s forwards;
+}
+
+@keyframes subtitle-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 0.9; transform: translateY(0); }
+}
+
+// ───── SVG family scene ────────────────────────────────────────────
+
+.hero__scene {
+  width: min(520px, 90%);
+  height: auto;
+  opacity: 0;
+  animation: scene-in 1s ease-out 1.8s forwards;
+  filter: drop-shadow(0 20px 32px rgb(0 0 0 / 0.12));
+}
+
+@keyframes scene-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+// House itself has a subtle breathing scale
+.scene-house {
+  transform-origin: 200px 230px;
+  animation: house-breathe 6s ease-in-out infinite;
+}
+
+@keyframes house-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.01); }
+}
+
+// Chimney smoke puffs rise
+.scene-smoke circle {
+  animation: smoke-rise 3s ease-out infinite;
+}
+.scene-smoke circle:nth-child(1) { animation-delay: 0s; }
+.scene-smoke circle:nth-child(2) { animation-delay: 1s; }
+.scene-smoke circle:nth-child(3) { animation-delay: 2s; }
+
+@keyframes smoke-rise {
+  0%   { transform: translateY(0) scale(1);   opacity: 0.8; }
+  100% { transform: translateY(-30px) scale(1.4); opacity: 0; }
+}
+
+// Tree leaves rustle (subtle rotate)
+.scene-leaves {
+  transform-origin: 65px 150px;
+  animation: leaves-rustle 4s ease-in-out infinite;
+}
+
+@keyframes leaves-rustle {
+  0%, 100% { transform: rotate(-2deg); }
+  50%      { transform: rotate(3deg); }
+}
+
+// Mom hair sways
+.scene-mom-hair {
+  transform-origin: 0 0;
+  animation: hair-sway 5s ease-in-out infinite;
+}
+
+@keyframes hair-sway {
+  0%, 100% { transform: skewX(-1deg); }
+  50%      { transform: skewX(2deg); }
+}
+
+// Dad blinks
+.scene-dad-eyes {
+  transform-origin: center;
+  animation: dad-blink 5s ease-in-out infinite;
+}
+
+@keyframes dad-blink {
+  0%, 46%, 52%, 100% { transform: scaleY(1); }
+  48%, 50%           { transform: scaleY(0.1); }
+}
+
+// Baby kicks — the whole group bobs
+.scene-baby {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: baby-kick 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes baby-kick {
+  0%, 100% { transform: translate(200px, 215px) rotate(0deg); }
+  50%      { transform: translate(200px, 210px) rotate(-3deg); }
+}
+
+// ───── Scroll hint ────────────────────────────────────────────────
+
+.hero__scroll-hint {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: subtitle-fade 0.8s ease-out 2.6s forwards;
+}
+
+.hero__scroll-arrow {
+  font-size: 24px;
+  animation: scroll-bob 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+// ───── Reduced motion ─────────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__letter,
+  .hero__subtitle,
+  .hero__scene,
+  .scene-house,
+  .scene-smoke circle,
+  .scene-leaves,
+  .scene-mom-hair,
+  .scene-dad-eyes,
+  .scene-baby,
+  .hero__scroll-hint,
+  .hero__scroll-arrow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .cloud {
+    transition: none !important;
+  }
+}

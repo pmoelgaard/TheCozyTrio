@@ -1,14 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ThemeService } from '@xsite/theme';
-import { ThemeToggle } from './shared/theme-toggle/theme-toggle';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Hero } from './sections/hero/hero';
 
 @Component({
   selector: 'app-root',
-  imports: [ThemeToggle],
+  imports: [Hero],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {
-  protected readonly theme = inject(ThemeService);
-}
+export class App {}
