@@ -19,10 +19,14 @@ import { DadHygge } from './dad-hygge/dad-hygge';
 
 /**
  * Single dialog shell that reads GameService.activeEgg and renders the
- * matching game component. Keeping this routing in one place means
- * every trigger — card clicks, milestone hover, konami code, heart
- * collection — goes through `game.open(name)` and the dialog handles
- * the rest.
+ * matching game component. Games are lazy-loaded via @defer blocks —
+ * each game's code and styles ship as a separate chunk so the initial
+ * bundle stays small for visitors who never open a game.
+ *
+ * The game component imports below are "references" that Angular's
+ * compiler uses to statically discover which classes map to each
+ * @defer block. The actual module is fetched only when the @defer's
+ * `when` condition becomes true.
  */
 @Component({
   selector: 'cozy-game-host',
@@ -58,7 +62,6 @@ export class GameHost {
     }
   });
 
-  /** Bound via [(open)] — when the dialog closes, reset activeEgg. */
   protected readonly isOpen = computed(() => this.active() !== null);
 
   protected onOpenChange(next: boolean): void {
@@ -69,8 +72,6 @@ export class GameHost {
     return this.active() === name;
   }
 
-  /** Games emit `won` — we don't need to do anything special, but we
-   * could show confetti here later. */
   protected onWon(): void {
     // Intentionally empty; discovery is already tracked by game.open().
   }

@@ -5,24 +5,42 @@
     [title]="title()"
     size="md"
   >
-    @if (is(eggs.peekABoo)) {
-      <cozy-peek-a-boo (won)="onWon()" />
+    @defer (when is(eggs.peekABoo)) {
+      @if (is(eggs.peekABoo)) {
+        <cozy-peek-a-boo (won)="onWon()" />
+      }
     }
-    @if (is(eggs.catchPacifier)) {
-      <cozy-catch-pacifier (won)="onWon()" />
+
+    @defer (when is(eggs.catchPacifier)) {
+      @if (is(eggs.catchPacifier)) {
+        <cozy-catch-pacifier (won)="onWon()" />
+      }
     }
-    @if (is(eggs.memoryMatch)) {
-      <cozy-memory-match (won)="onWon()" />
+
+    @defer (when is(eggs.memoryMatch)) {
+      @if (is(eggs.memoryMatch)) {
+        <cozy-memory-match (won)="onWon()" />
+      }
     }
-    @if (is(eggs.wordMatcher)) {
-      <cozy-word-matcher (won)="onWon()" />
+
+    @defer (when is(eggs.wordMatcher)) {
+      @if (is(eggs.wordMatcher)) {
+        <cozy-word-matcher (won)="onWon()" />
+      }
     }
-    @if (is(eggs.momKaraoke)) {
-      <cozy-mom-karaoke (won)="onWon()" />
+
+    @defer (when is(eggs.momKaraoke)) {
+      @if (is(eggs.momKaraoke)) {
+        <cozy-mom-karaoke (won)="onWon()" />
+      }
     }
-    @if (is(eggs.dadHygge)) {
-      <cozy-dad-hygge (won)="onWon()" />
+
+    @defer (when is(eggs.dadHygge)) {
+      @if (is(eggs.dadHygge)) {
+        <cozy-dad-hygge (won)="onWon()" />
+      }
     }
+
     @if (is(eggs.konami)) {
       <div class="game-host__konami">
         <div class="game-host__konami-emoji">💃🕺👶</div>
