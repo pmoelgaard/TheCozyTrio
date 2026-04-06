@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@xtnd-dynamics/xsite-core': link:../../xsite-core/dist/xsite-core
+  '@xtnd-dynamics/xsite-theme': link:../../xsite-theme/dist/xsite-theme
+  '@xtnd-dynamics/xsite-ui': link:../../xsite-ui/dist/xsite-ui
+
 importers:
 
   .:
@@ -27,14 +32,14 @@ importers:
         specifier: ^21.2.0
         version: 21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@xtnd-dynamics/xsite-core':
-        specifier: ^0.1.0
-        version: 0.1.0(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/router@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2))
+        specifier: link:../../xsite-core/dist/xsite-core
+        version: link:../../xsite-core/dist/xsite-core
       '@xtnd-dynamics/xsite-theme':
-        specifier: ^0.1.0
-        version: 0.1.0(44e29b357f13d7d097612c2dd1697e51)
+        specifier: link:../../xsite-theme/dist/xsite-theme
+        version: link:../../xsite-theme/dist/xsite-theme
       '@xtnd-dynamics/xsite-ui':
-        specifier: ^0.1.0
-        version: 0.1.0(509375214d94f2f16b3cfdb53ceed139)
+        specifier: link:../../xsite-ui/dist/xsite-ui
+        version: link:../../xsite-ui/dist/xsite-ui
       rxjs:
         specifier: ~7.8.0
         version: 7.8.2
@@ -1451,33 +1456,6 @@ packages:
 
   '@vitest/utils@4.1.2':
     resolution: {integrity: sha512-xw2/TiX82lQHA06cgbqRKFb5lCAy3axQ4H4SoUFhUsg+wztiet+co86IAMDtF6Vm1hc7J6j09oh/rgDn+JdKIQ==}
-
-  '@xtnd-dynamics/xsite-core@0.1.0':
-    resolution: {integrity: sha512-iVyv7kQIU6w0daR5oVdbyg6i1KC2w8GG9eV8YVdDHsnRLvcNUjJOwsVMfLSTdPYo5HNxoLzgNix0evHe+cjtFg==, tarball: https://npm.pkg.github.com/download/@xtnd-dynamics/xsite-core/0.1.0/3234900a01fbb264ad7bf472f7f58852eb4b681a}
-    peerDependencies:
-      '@angular/common': ^21.2.0
-      '@angular/core': ^21.2.0
-      '@angular/platform-browser': ^21.2.0
-      '@angular/router': ^21.2.0
-
-  '@xtnd-dynamics/xsite-theme@0.1.0':
-    resolution: {integrity: sha512-H2GRLRF0dvQJVNC+GugICiMtH+ghOSIK/mg9T3vUB12A2DV1eghNb/MgETkYmq0VnaLQ2hCXwV5kjIaLXU78vw==, tarball: https://npm.pkg.github.com/download/@xtnd-dynamics/xsite-theme/0.1.0/23e92c80363e7bdfd9c692e4d1fd86e42c23f0b0}
-    peerDependencies:
-      '@angular/common': ^21.2.0
-      '@angular/core': ^21.2.0
-      '@angular/platform-browser': ^21.2.0
-      '@xtnd-dynamics/xsite-core': ^0.1.0
-
-  '@xtnd-dynamics/xsite-ui@0.1.0':
-    resolution: {integrity: sha512-Pq/m6DHTaaSfp2NjqRgqeUdX28mSmKgryg43sMczBfZgg8r0YjFvacEVg4BF7rsoARBuN0ieaFKco60QLUleng==, tarball: https://npm.pkg.github.com/download/@xtnd-dynamics/xsite-ui/0.1.0/798b8382b2b019b64ac049acd15ee26903d2658a}
-    peerDependencies:
-      '@angular/common': ^21.2.0
-      '@angular/core': ^21.2.0
-      '@angular/forms': ^21.2.0
-      '@angular/platform-browser': ^21.2.0
-      '@angular/router': ^21.2.0
-      '@xtnd-dynamics/xsite-core': ^0.1.0
-      '@xtnd-dynamics/xsite-theme': ^0.1.0
 
   '@yarnpkg/lockfile@1.1.0':
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
@@ -3981,33 +3959,6 @@ snapshots:
       '@vitest/pretty-format': 4.1.2
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.0
-
-  '@xtnd-dynamics/xsite-core@0.1.0(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/router@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2))':
-    dependencies:
-      '@angular/common': 21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/core': 21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)
-      '@angular/platform-browser': 21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))
-      '@angular/router': 21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2)
-      tslib: 2.8.1
-
-  '@xtnd-dynamics/xsite-theme@0.1.0(44e29b357f13d7d097612c2dd1697e51)':
-    dependencies:
-      '@angular/common': 21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/core': 21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)
-      '@angular/platform-browser': 21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))
-      '@xtnd-dynamics/xsite-core': 0.1.0(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/router@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2))
-      tslib: 2.8.1
-
-  '@xtnd-dynamics/xsite-ui@0.1.0(509375214d94f2f16b3cfdb53ceed139)':
-    dependencies:
-      '@angular/common': 21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/core': 21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)
-      '@angular/forms': 21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2)
-      '@angular/platform-browser': 21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))
-      '@angular/router': 21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2)
-      '@xtnd-dynamics/xsite-core': 0.1.0(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(@angular/router@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(@angular/platform-browser@21.2.7(@angular/common@21.2.7(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.7(@angular/compiler@21.2.7)(rxjs@7.8.2)))(rxjs@7.8.2))
-      '@xtnd-dynamics/xsite-theme': 0.1.0(44e29b357f13d7d097612c2dd1697e51)
-      tslib: 2.8.1
 
   '@yarnpkg/lockfile@1.1.0': {}
 
