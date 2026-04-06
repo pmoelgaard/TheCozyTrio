@@ -1,0 +1,15 @@
+<div class="floaters" aria-hidden="true">
+  @for (item of items(); track $index) {
+    <span
+      class="floaters__item"
+      [style.top]="item.top"
+      [style.left]="item.left"
+      [style.font-size]="item.size"
+      [style.animation-delay]="item.delay"
+      [style.animation-duration]="item.duration"
+      [style.--drift]="item.drift"
+    >
+      {{ item.glyph }}
+    </span>
+  }
+</div>

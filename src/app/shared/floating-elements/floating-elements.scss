@@ -1,0 +1,51 @@
+// Ambient decoration layer. Position absolute so it fills its
+// nearest positioned ancestor (the hosting section).
+
+:host {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floaters {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.floaters__item {
+  position: absolute;
+  // --drift is set as an inline style from the component
+  --drift: 0px;
+  line-height: 1;
+  opacity: 0.65;
+  filter: drop-shadow(0 4px 8px rgb(0 0 0 / 0.1));
+  animation-name: floaters-drift;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  will-change: transform, opacity;
+}
+
+@keyframes floaters-drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate3d(var(--drift), -24px, 0) rotate(8deg) scale(1.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floaters__item {
+    animation: none !important;
+    opacity: 0.5;
+  }
+}
